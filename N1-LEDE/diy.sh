@@ -25,6 +25,11 @@ function git_sparse_clone() {
 # git clone --depth 1 https://github.com/brvphoenix/wrtbwmon package/wrtbwmon
 # git clone --depth 1 https://github.com/brvphoenix/luci-app-wrtbwmon package/luci-app-wrtbwmon
 
+# nps
+rm -rf feeds/packages/net/nps
+rm -rf feeds/luci/applications/luci-app-nps
+git clone --depth=1 https://github.com/djylb/nps-openwrt package/nps-openwrt
+
 git clone --depth=1 https://github.com/gdy666/luci-app-lucky package/lucky
 git clone --depth=1 https://github.com/ximiTech/msd_lite package/msd_lite
 git clone --depth=1 https://github.com/ximiTech/luci-app-msd_lite package/luci-app-msd_lite
