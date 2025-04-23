@@ -86,10 +86,10 @@ rm -rf feeds/luci/applications/luci-app-mosdns
 #rm -rf feeds/luci/themes/luci-theme-design
 #rm -rf feeds/luci/applications/luci-app-design-config
 
-rm -rf feeds/packages/admin/netdata
-rm -rf feeds/luci/applications/luci-app-netdata
-git clone https://github.com/sirpdboy/openwrt-netdata package/openwrt-netdata
-git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
+# rm -rf feeds/packages/admin/netdata
+# rm -rf feeds/luci/applications/luci-app-netdata
+# git clone https://github.com/sirpdboy/openwrt-netdata package/openwrt-netdata
+# git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
 
 git clone -b lua --single-branch --depth 1 https://github.com/sirpdboy/luci-app-adguardhome package/luci-app-adguardhome
 
