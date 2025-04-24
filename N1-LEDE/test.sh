@@ -48,6 +48,9 @@ mv package/small/luci-app-cloudflarespeedtest package/luci-app-cloudflarespeedte
 mv package/small/luci-app-dnsfilter package/luci-app-dnsfilter
 mv package/small/luci-app-fileassistant package/luci-app-fileassistant
 
+# istore
+git clone --depth=1 https://github.com/lein134/wrtsoft package/istore
+
 
 # mv package/small/luci-app-msd_lite package/luci-app-msd_lite
 # mv package/small/netdata package/netdata
