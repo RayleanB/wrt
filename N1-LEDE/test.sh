@@ -105,6 +105,8 @@ rm -rf feeds/packages/net/ddns-go
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/packages/net/lucky
 
+sed -i 's/"admin", "vpn"/"admin", "nas"/g' feeds/luci/applications/luci-app-zerotier/luasrc/controller/*.lua
+
 
 # 1 启用 frps
 rm -rf feeds/packages/net/frp
