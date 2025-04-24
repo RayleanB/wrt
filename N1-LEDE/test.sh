@@ -12,7 +12,7 @@ function git_sparse_clone() {
 ###########################################################################
 # 自定义添加
 # git clone --depth=1 https://github.com/vernesong/OpenClash package/OpenClash
-# git clone --depth=1 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
+git clone --depth=1 https://github.com/tty228/luci-app-wechatpush package/wechatpush
 # git clone --depth=1 https://github.com/sundaqiang/openwrt-packages package/openwrt-packages
 # mv package/openwrt-packages/luci-app-wolplus package/luci-app-wolplus
 # rm -rf package/openwrt-packages
