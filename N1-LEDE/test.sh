@@ -37,10 +37,10 @@ git clone --depth=1 https://github.com/gdy666/luci-app-lucky package/lucky
 #git clone --depth=1 https://github.com/ximiTech/msd_lite package/msd_lite
 #git clone --depth=1 https://github.com/ximiTech/luci-app-msd_lite package/luci-app-msd_lite
 
-git_sparse_clone main "https://github.com/RayleanB/packages" package/sm 18.06/small-packages
-sed -i 's|("OpenClash"), 50)|("OpenClash"), 1)|g' package/small-packages/luci-app-openclash/luasrc/controller/*.lua
-sed -i 's/"admin", "control"/"admin", "network"/g' package/small-packages/luci-app-timecontrol/luasrc/controller/*.lua
-sed -i 's/("Internet Time Control"), 10)/("Internet Time Control"), 90)/g' package/small-packages/luci-app-timecontrol/luasrc/controller/*.lua
+git clone --depth=1 https://github.com/RayleanB/packages package/sm
+sed -i 's|("OpenClash"), 50)|("OpenClash"), 1)|g' package/sm/luci-app-openclash/luasrc/controller/*.lua
+sed -i 's/"admin", "control"/"admin", "network"/g' package/sm/luci-app-timecontrol/luasrc/controller/*.lua
+sed -i 's/("Internet Time Control"), 10)/("Internet Time Control"), 90)/g' package/sm/luci-app-timecontrol/luasrc/controller/*.lua
 
 
 #添加科学上网源
