@@ -35,12 +35,10 @@ CONFIG_PACKAGE_ip6tables=y
 CONFIG_PACKAGE_ip6tables-extra=y
 CONFIG_PACKAGE_ip6tables-mod-nat=y
 
-# 添加L大仓库没有或替换其他源的插件
+# 添加仓库没有或替换其他源的插件
 CONFIG_PACKAGE_frps=y
 CONFIG_PACKAGE_frpc=y
 CONFIG_PACKAGE_screen=y
-CONFIG_PACKAGE_msd_lite=n
-CONFIG_PACKAGE_lucky=n
 CONFIG_PACKAGE_nps=n
 CONFIG_PACKAGE_npc=n
 
@@ -65,12 +63,12 @@ CONFIG_PACKAGE_luci-app-qbittorrent=y
 CONFIG_PACKAGE_luci-app-upnp=y
 CONFIG_PACKAGE_luci-app-serverchan=y
 CONFIG_PACKAGE_luci-app-timecontrol=y
+CONFIG_PACKAGE_luci-app-lucky=y
 # 不安装插件
-CONFIG_PACKAGE_luci-app-nps=y
-CONFIG_PACKAGE_luci-app-npc=y
+CONFIG_PACKAGE_luci-app-nps=n
+CONFIG_PACKAGE_luci-app-npc=n
 CONFIG_PACKAGE_luci-app-msd_lite=n
 CONFIG_PACKAGE_luci-app-iptvhelper=n
-CONFIG_PACKAGE_luci-app-lucky=n
 CONFIG_PACKAGE_luci-app-udpxy=n
 CONFIG_PACKAGE_luci-app-wolplus=n
 CONFIG_PACKAGE_luci-app-passwall=n
@@ -84,7 +82,7 @@ CONFIG_PACKAGE_luci-app-mwan3=n
 CONFIG_PACKAGE_luci-app-mwan3helper=n
 CONFIG_PACKAGE_luci-app-netdata=n
 CONFIG_PACKAGE_luci-app-fileassistant=n
-# CONFIG_PACKAGE_luci-app-nps=y
+
 # CONFIG_PACKAGE_luci-app-wechatpush=y
 
 #acme
@@ -99,8 +97,8 @@ CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-ng=n
 
 # theme主题
 CONFIG_PACKAGE_luci-theme-bootstrap=y
-CONFIG_PACKAGE_luci-theme-design=n
-CONFIG_PACKAGE_luci-app-design-config=n
+CONFIG_PACKAGE_luci-theme-design=y
+CONFIG_PACKAGE_luci-app-design-config=y
 CONFIG_PACKAGE_luci-theme-netgear=n
 CONFIG_PACKAGE_luci-theme-argon=n
 CONFIG_PACKAGE_luci-app-argon-config=n
@@ -108,7 +106,7 @@ CONFIG_PACKAGE_luci-app-argon-config=n
 CONFIG_PACKAGE_luci-app-openvpn-server=n
 CONFIG_PACKAGE_luci-app-softethervpn=n
 CONFIG_PACKAGE_luci-app-wireguard=n
-CONFIG_PACKAGE_luci-app-zerotier=n
+CONFIG_PACKAGE_luci-app-zerotier=y
 #加速插件
 CONFIG_PACKAGE_luci-app-turboacc=n
 # 精简lean默认选中的插件
