@@ -155,20 +155,17 @@ jobs:
       uses: unifreq/openwrt_packit@master
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/openwrt-amlogic-mesongx-phicomm_n1-rootfs.tar.gz
-        #KERNEL_VERSION_NAME: 5.15.176
-        #KERNEL_AUTO_LATEST: false
-        #PACKAGE_SOC: s905d
-        #WHOAMI: fightroad
-        #SW_FLOWOFFLOAD: 1
-        #SFE_FLOW: 0
         KERNEL_VERSION_NAME: 5.15.176_6.6.80
+        #KERNEL_AUTO_LATEST: false
         PACKAGE_SOC: s905d
         WHOAMI: Lein
         OPENWRT_VER: $(date +"%Y.%m.%d")
-        SW_FLOWOFFLOAD: 0
-        HW_FLOWOFFLOAD: 0
+        SW_FLOWOFFLOAD: 1
         SFE_FLOW: 0
-
+        #HW_FLOWOFFLOAD: 0
+        #ENABLE_WIFI_K504: 0
+        #ENABLE_WIFI_K510: 0
+        
     - name: Tar Packages
       run: |
         cd /opt/packages
