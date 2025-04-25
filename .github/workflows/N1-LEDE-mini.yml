@@ -168,8 +168,6 @@ jobs:
         SW_FLOWOFFLOAD: 0
         HW_FLOWOFFLOAD: 0
         SFE_FLOW: 0
-        ENABLE_WIFI_K504: 0
-        ENABLE_WIFI_K510: 0
 
     - name: Tar Packages
       run: |
