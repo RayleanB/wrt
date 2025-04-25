@@ -1,12 +1,14 @@
 #!/bin/bash
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
-  branch="$1" repourl="$2" && shift 2
-  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
-  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
-  cd $repodir && git sparse-checkout set $@
-  mv -f $@ ../package
-  cd .. && rm -rf $repodir
+  branch="$1" rurl="$2" localdir="$3" && shift 3
+  git clone -b $branch --depth 1 --filter=blob:none --sparse $rurl $localdir
+  cd $localdir
+  git sparse-checkout init --cone
+  git sparse-checkout set $@
+  mv -n $@ ../
+  cd ..
+  rm -rf $localdir
 }
 
 ###########################################################################
@@ -35,43 +37,17 @@ git clone --depth=1 https://github.com/gdy666/luci-app-lucky package/lucky
 #git clone --depth=1 https://github.com/ximiTech/msd_lite package/msd_lite
 #git clone --depth=1 https://github.com/ximiTech/luci-app-msd_lite package/luci-app-msd_lite
 
-git clone --depth=1 https://github.com/kenzok8/small-package package/small
-mv package/small/luci-app-openclash package/luci-app-openclash
-sed -i 's|("OpenClash"), 50)|("OpenClash"), 1)|g' package/luci-app-openclash/luasrc/controller/*.lua
-mv package/small/iptvhelper package/iptvhelper
-mv package/small/luci-app-iptvhelper package/luci-app-iptvhelper
-mv package/small/luci-app-timecontrol package/luci-app-timecontrol
-sed -i 's/"admin", "control"/"admin", "network"/g' package/luci-app-timecontrol/luasrc/controller/*.lua
-sed -i 's/("Internet Time Control"), 10)/("Internet Time Control"), 90)/g' package/luci-app-timecontrol/luasrc/controller/*.lua
-mv package/small/cdnspeedtest package/cdnspeedtest
-mv package/small/luci-app-cloudflarespeedtest package/luci-app-cloudflarespeedtest
-mv package/small/luci-app-dnsfilter package/luci-app-dnsfilter
-mv package/small/luci-app-fileassistant package/luci-app-fileassistant
+git_sparse_clone main "https://github.com/RayleanB/packages" package 18.06/small-packages
+sed -i 's|("OpenClash"), 50)|("OpenClash"), 1)|g' small-packages/luci-app-openclash/luasrc/controller/*.lua
+sed -i 's/"admin", "control"/"admin", "network"/g' small-packages/luci-app-timecontrol/luasrc/controller/*.lua
+sed -i 's/("Internet Time Control"), 10)/("Internet Time Control"), 90)/g' small-packages/luci-app-timecontrol/luasrc/controller/*.lua
 
-# istore
-git clone --depth=1 https://github.com/lein134/wrtsoft package/istore
-
-
-# mv package/small/luci-app-msd_lite package/luci-app-msd_lite
-# mv package/small/netdata package/netdata
-# mv package/small/luci-app-netdata package/luci-app-netdata
-# mv package/small/qbittorrent package/qbittorrent
-# mv package/small/qt6base package/qt6base
-# mv package/small/qt6tools package/qt6tools
-# mv package/small/rblibtorrent package/rblibtorrent
-# mv package/small/luci-app-qbittorrent package/luci-app-qbittorrent
-mv package/small/luci-app-wechatpush package/luci-app-wechatpush
-mv package/small/luci-app-poweroff package/luci-app-poweroff
-# mv package/small/wrtbwmon package/wrtbwmon
-# mv package/small/luci-app-wrtbwmon package/luci-app-wrtbwmon
-rm -rf package/small
 
 #添加科学上网源
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 git clone -b 18.06 --single-branch --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone -b 18.06 --single-branch --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-git clone --depth=1 https://github.com/ophub/luci-app-amlogic package/amlogic
 git clone --depth=1 https://github.com/sirpdboy/luci-app-ddns-go package/ddnsgo
 
 git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
